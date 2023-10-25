@@ -1,0 +1,30 @@
+
+@import '../../src/styles/sass/mixins';
+@import '../../src/styles/sass/variables';
+
+.cat-nav-container{
+
+  background-color:#1e1e1e;
+  max-width:100%;
+  border-top:#444444 solid 1px;
+
+  .list-items{
+
+  list-style-type:none;
+  display:inline-block;
+  margin: 0.2em,1em;
+  height:2.5em;
+  padding:0.4em;
+
+  a{
+    text-decoration: none;
+    color:white;
+
+   
+
+
+  }
+  @include underline-transition(1.1)
+}
+
+}
