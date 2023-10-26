@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './_side-nav.scss'
-import { useSelector } from 'react-redux'
-import accordionSlice from '../../store/slices/accordionSlice/accordionSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import accordionSlice from '../../Redux/Accordion/accordionSlice'
+import { getCategories } from '../../Redux/Category/actions'
 const SideNav = () => {
 
-    let accordionData= useSelector(accordionSlice.getInitialState);
+    let accordionData= useSelector(state=>state.categoryReducer.categories);
+    const dispatch= useDispatch();
+
+    useEffect(()=>{
+
+         dispatch(getCategories());
+
+
+
+    },[]);
   return (
     <div className='side-nav'>
 
@@ -17,6 +27,7 @@ const SideNav = () => {
 
         {accordionData.map((eachData)=>{
 
+if(eachData.parent_category_id==null)
  return(
          <div className='accordion-item individual-category'>
           <div className="accordion-header">
@@ -27,14 +38,16 @@ const SideNav = () => {
             </button>
             </div>
 
-            <div className='accordion-collapse collapse show' id={eachData.category}>
+            {           (accordionData.filter((eachSubCategory)=>eachData.id==eachSubCategory.parent_category_id).length>0) && <div className='accordion-collapse collapse show' id={eachData.category}>
 
                 <div className='accordion-body'>
              
                  <ul>
-              {eachData.items.map((eachItem)=>{
+              {
+            
+              accordionData.filter((eachSubCategory)=>eachData.id==eachSubCategory.parent_category_id).map((eachItem)=>{
 
-          return <li className='sub-items'><a href='#'>{eachItem}</a></li>
+          return <li className='sub-items'><a href='#'>{eachItem.category}</a></li>
             
               })}
             
@@ -46,11 +59,14 @@ const SideNav = () => {
 
 
                 </div>
-            </div>
+            </div>}
 
-            </div>
+            </div> 
 
         )
+
+
+
         })}
            {/*
             <div className='accordion-item'>
