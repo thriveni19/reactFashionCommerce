@@ -1,59 +1,12 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './_products.scss';
-
+import { useSelector } from 'react-redux';
+import productSlice from '../store/slices/productSlice/productSlice';
 const Products=()=>{
 
-    const productData= [
-
-     {
-        pName:"Jacket",
-        price:45,
-        img:'shop-1.jpg'
-
-     },
-     
-     {
-        pName:"Purse",
-        price:50,
-        img:'shop-2.jpg'
-
-     },
-
-     
-     {
-        pName:"Dress",
-        price:40,
-        img:'shop-3.jpg'
-
-     },
-
-     
-     {
-        pName:"Denim",
-        price:45,
-        img:'shop-4.jpg'
-
-     },
-
-     
-     {
-        pName:"Boots",
-        price:45,
-        img:'shop-5.jpg'
-
-     },
-
-     
-     {
-        pName:"Bag",
-        price:45,
-        img:'shop-6.jpg'
-
-     }
-
-    ]
-
+    let productData= useSelector(productSlice.getInitialState);
+    
     return(
  
         <div className='product-container'>

@@ -1,6 +1,10 @@
 import React from 'react'
 import './_side-nav.scss'
+import { useSelector } from 'react-redux'
+import accordionSlice from '../../store/slices/accordionSlice/accordionSlice'
 const SideNav = () => {
+
+    let accordionData= useSelector(accordionSlice.getInitialState);
   return (
     <div className='side-nav'>
 
@@ -8,27 +12,32 @@ const SideNav = () => {
             <h3>Category</h3>
         </div>
 
+
         <div className='accordion'>
+
+        {accordionData.map((eachData)=>{
+
+ return(
          <div className='accordion-item individual-category'>
           <div className="accordion-header">
-            <button className="accordion-button" data-bs-target="#accordion-heading-one" data-bs-toggle="collapse">
+            <button id={"but"+eachData.category} className="accordion-button" data-bs-target={'#'+eachData.category} data-bs-toggle="collapse">
             <div className='category-title'>
-                Men
+                {eachData.category}
             </div>
             </button>
             </div>
 
-            <div className='accordion-collapse collapse show' id="accordion-heading-one">
+            <div className='accordion-collapse collapse show' id={eachData.category}>
 
                 <div className='accordion-body'>
              
                  <ul>
+              {eachData.items.map((eachItem)=>{
 
-                 <li className='sub-items'><a href='#'>Coats</a></li>
-                 <li className='sub-items'><a href='#'>Boots</a></li>
-                 <li className='sub-items'><a href='#'>Shirts</a></li>
-                 <li className='sub-items'><a href='#'>Pants</a></li>
-
+          return <li className='sub-items'><a href='#'>{eachItem}</a></li>
+            
+              })}
+            
 
 
 
@@ -40,6 +49,9 @@ const SideNav = () => {
             </div>
 
             </div>
+
+        )
+        })}
            {/*
             <div className='accordion-item'>
             <div className='category-title'>

@@ -1,9 +1,10 @@
 import "./_cat-nav.scss"
-
+import {useSelector} from "react-redux";
+import categorySlice from "../store/slices/categorySlice/categorySlice";
 const CatNav= function()
 {
 
-  let  categories=["Men","Women","Kids","Best Offers"];
+  let  categories= useSelector(categorySlice.getInitialState);
     return(
   
         <div className="cat-nav-container  ">
