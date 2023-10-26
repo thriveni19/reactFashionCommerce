@@ -4,16 +4,28 @@ import './_products.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts } from '../Redux/Product/actions';
+import { addCartItem } from '../Redux/Cart/cartSlice';
 const Products=()=>{
 
     let productData= useSelector(state=>state.productReducer.products);
     
+    let cartData=useSelector(state=>state.cartReducer)
+    console.log(cartData);
     let dispatch= useDispatch();
     useEffect(()=>{
 
+        console.log("use effect called");
          dispatch(getProducts());
 
     },[] )
+
+    const addToCart= (product)=>{
+
+
+        dispatch(addCartItem(product));
+    }
+
+    
     return(
  
         <div className='product-container'>
@@ -39,7 +51,7 @@ return(
                   <FontAwesomeIcon  icon='fa fa-star' className='rating' />
                   <FontAwesomeIcon  icon='fa fa-star' className='rating' />
                </div>
-             <div className='my-3'>
+             <div className='my-3'onClick={()=>{addToCart(eachProduct);}}>
               <div className='cart-button'>
                     <div className='cart-icon-container'>
                <FontAwesomeIcon icon="fa fa-shopping-cart" className="mx-4 cart-icon" />
