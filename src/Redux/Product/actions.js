@@ -12,3 +12,6 @@ export const getProducts= createAsyncThunk(
     return products;
    }
 );
+
+
+

@@ -1,11 +1,14 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import  './_top-nav.scss'
+import { useSelector } from 'react-redux'
 
 const TopNav = function()
 {
 
-
+  const cartItemCount= useSelector(state=>state.cartReducer.totalItems);
+//console.log("count",cartItemCount);
     return(
         <div className='header bg-dark'>
         <div className='topnavrow row'>
@@ -31,9 +34,8 @@ const TopNav = function()
             <ul className="p-0">
  
            <li className="list-icon"><FontAwesomeIcon icon="fa fa-heart"/> </li>
-           <li className="list-icon" > <FontAwesomeIcon icon="fa fa-shopping-cart"/> </li>
-           
-
+           <li className="list-icon" > <FontAwesomeIcon icon="fa fa-shopping-cart"/>{cartItemCount>0 && <div className='cart-item-count'><p>{cartItemCount}</p></div>} </li>
+         
             </ul>
 
           </div>

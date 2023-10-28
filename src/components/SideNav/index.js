@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import './_side-nav.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import accordionSlice from '../../Redux/Accordion/accordionSlice'
 import { getCategories } from '../../Redux/Category/actions'
+import { filterProducts } from '../../Redux/Product/productSlice'
 const SideNav = () => {
 
     let accordionData= useSelector(state=>state.categoryReducer.categories);
+    let  fetchedProductData= useSelector(state=>state.productReducer)
+    let [products,setProducts] = useState();
     const dispatch= useDispatch();
 
     useEffect(()=>{
@@ -13,8 +16,24 @@ const SideNav = () => {
          dispatch(getCategories());
 
 
-
     },[]);
+
+
+    useEffect(()=>{
+
+
+        setProducts(fetchedProductData.products)
+
+   },[fetchedProductData.status]);
+
+
+    const filterData=(selectedCategory) =>
+    {
+        const payload ={selectedCategory,products};
+        dispatch(filterProducts(payload))
+        console.log(products);
+    }
+
   return (
     <div className='side-nav'>
 
@@ -23,7 +42,7 @@ const SideNav = () => {
         </div>
 
 
-        <div className='accordion'>
+        <div className='accordion my-3'>
 
         {accordionData.map((eachData)=>{
 
@@ -47,7 +66,7 @@ if(eachData.parent_category_id==null)
             
               accordionData.filter((eachSubCategory)=>eachData.id==eachSubCategory.parent_category_id).map((eachItem)=>{
 
-          return <li className='sub-items'><a href='#'>{eachItem.category}</a></li>
+          return <li className='sub-items'><a href='#' onClick={()=>{filterData(eachItem)}}>{eachItem.category}</a></li>
             
               })}
             
@@ -84,6 +103,13 @@ if(eachData.parent_category_id==null)
 
 
         </div>
+
+         <div className='section-title '>
+
+            <h3> Filter by Price </h3>
+
+         </div>
+
     </div>
   )
 }
