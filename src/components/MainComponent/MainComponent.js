@@ -1,6 +1,6 @@
 import React from 'react'
-import SideNav from './SideNav'
-import Products from './ProductsComponent'
+import SideNav from '../SideNav'
+import Products from '../ProductsComponent/ProductsComponent'
 function MainComponent() {
   return (
     <div className='container-fluid'>

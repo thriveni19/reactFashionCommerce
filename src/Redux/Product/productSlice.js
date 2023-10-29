@@ -21,6 +21,20 @@ const productSlice= createSlice({
    })
 
   state.products=filteredData;
+  },
+
+  filterByPrice:(state,action) =>
+  {
+   let minPrice= action.payload.minPrice;
+   let maxPrice = action.payload.maxPrice;
+   const filteredData= action.payload.products.filter((eachProduct)=>{
+
+       
+      return eachProduct.price >= minPrice && eachProduct.price <= maxPrice;
+   })
+
+   state.products=filteredData;
+
   }
 },
 
@@ -42,5 +56,5 @@ const productSlice= createSlice({
 
 });
 
-export const {filterProducts}= productSlice.actions;
+export const {filterProducts,filterByPrice}= productSlice.actions;
 export default productSlice.reducer;

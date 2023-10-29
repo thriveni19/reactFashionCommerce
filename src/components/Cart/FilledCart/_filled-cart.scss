@@ -1,0 +1,59 @@
+
+
+.cart-main-div{
+
+     text-align: center;
+     margin: auto;
+     width:70%;
+
+     .cart-item-container
+     { 
+        img{
+            height:13em;
+            border-radius: 0.5em;
+        }
+        .cart-product-info{
+            text-align: left;
+
+            .cart-product-name{
+
+                font-size:1.4em;
+            }
+
+            .cart-product-price {
+                 float:right 
+                 span{
+                    font-size:1.5em;
+                 }
+
+            }
+
+            span {
+
+                font-weight:600;
+                font-size:large;
+            }
+
+        }
+
+        
+
+     }
+     
+     .cart-summary{
+
+        height:fit-content;
+        border-radius: 2em;
+        background-color: aliceblue;
+        text-align: start;
+        span {
+             display: block;
+             color: rgb(78,78,78);
+             margin:0;
+
+
+        }
+
+     }
+    
+}

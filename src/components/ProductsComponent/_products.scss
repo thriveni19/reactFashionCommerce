@@ -1,4 +1,9 @@
-@import '../styles/sass/mixins';
+
+
+@import '../../styles/sass/mixins';
+@import '../../styles/sass/variables';
+
+
 @include style-reset-a-li;
 
 .product-container{

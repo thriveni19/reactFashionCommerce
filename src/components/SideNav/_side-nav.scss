@@ -1,6 +1,7 @@
 @import '../../styles/sass/mixins';
 @import '../../styles/sass/variables';
 
+
 .side-nav{
 
     height:40em;
@@ -42,5 +43,11 @@
          
     }
 
+    .price-filter-container{
+
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
     
 }

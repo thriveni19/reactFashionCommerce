@@ -1,7 +1,13 @@
+@import '../../styles/sass/mixins';
+@import '../../styles/sass/variables';
+
+
 
 .header{
     max-width: 100%;
     box-shadow: 5px 5px 20px gray;
+    height:200px;
+    
   }
   
   .topnavrow div{
@@ -18,11 +24,11 @@
   .inp-container input{
     display: inline-block;
     width: 75%;
-    height: 2.5em;
+    height: $element-height;
   }
   .inp-container button{
     width: 10%;
-    height: 2.5em;
+    height: $element-height;
     border: none;
     background-color: #dadada;
   }
@@ -31,7 +37,7 @@
     width: 15%;
   }
   .select-btn{
-    height: 2.5em;
+    height: $element-height;
     border: none;
     background-color: #dadada;
     font-weight: 600;
@@ -76,5 +82,32 @@
     width:7%;
     margin-top:1.7em;
     margin-left:1em;
+  }
+
+  .list-icon{
+
+  .cart-item-count{
+
+
+    border-radius:50%;
+    background-color: gold;
+    position:absolute;
+    height:1em;
+    width: 1em;
+    left: 83%;
+    top:1.8%;
+    text-align: center;
+    line-height: 90%;
+    p{
+
+        font-size:0.8em;
+        font-weight:600;
+        color:black;
+    }
+
+
+  }
+
+
   }
   

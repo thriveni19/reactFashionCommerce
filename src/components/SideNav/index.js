@@ -3,12 +3,15 @@ import './_side-nav.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import accordionSlice from '../../Redux/Accordion/accordionSlice'
 import { getCategories } from '../../Redux/Category/actions'
-import { filterProducts } from '../../Redux/Product/productSlice'
+import { filterByPrice, filterProducts } from '../../Redux/Product/productSlice'
 const SideNav = () => {
 
     let accordionData= useSelector(state=>state.categoryReducer.categories);
     let  fetchedProductData= useSelector(state=>state.productReducer)
     let [products,setProducts] = useState();
+    let [minPriceLimit,setMinPriceLimit]= useState(10);
+    let [maxPriceLimit,setMaxPriceLimit]= useState(130);
+    
     const dispatch= useDispatch();
 
     useEffect(()=>{
@@ -103,13 +106,43 @@ if(eachData.parent_category_id==null)
 
 
         </div>
-
+        <div className="price-filter-container">
          <div className='section-title '>
 
             <h3> Filter by Price </h3>
 
          </div>
+         <div>
+            <label> Min: {minPriceLimit} </label>
+            <input type="range"
+            className='form-range'
+            onChange={(e)=>{setMinPriceLimit(e.target.value)}}
+        
+            value={minPriceLimit}
+            min={10}
+            max={130}
+            step={10} />
 
+            </div> 
+            <div>
+             <label> Max: {maxPriceLimit} </label>
+            <input type="range"
+            min={10}
+            value={maxPriceLimit}
+          
+            onChange={(e)=>{setMaxPriceLimit(e.target.value)}}
+            className='form-range'
+       
+            max={130}
+            step={10} />
+            </div>
+            <div>
+            <button className='btn btn-outline-dark  my-3' onClick={()=>{dispatch(filterByPrice({products:products, minPrice:minPriceLimit,maxPrice:maxPriceLimit}))}}> Apply Filter</button>
+           
+
+         </div>
+
+               </div>
     </div>
   )
 }

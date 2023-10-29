@@ -1,8 +1,9 @@
 import "./_cat-nav.scss"
 import {useDispatch,  useSelector} from "react-redux";
-import categorySlice from "../Redux/Category/categorySlice";
-import { getCategories } from "../Redux/Category/actions";
+import categorySlice from "../../Redux/Category/categorySlice";
+import { getCategories } from "../../Redux/Category/actions";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 const CatNav= function()
 {
 
@@ -21,6 +22,9 @@ console.log(categories);
   
         <div className="cat-nav-container container ">
   <ul >
+  <li className="list-items "  >
+   <Link to="/">Home</Link>
+   </li>
   { categories.map((eachCategory,index)=>
   {
      if(!eachCategory.parent_category_id)

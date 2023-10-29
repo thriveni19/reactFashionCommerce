@@ -10,9 +10,14 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
-import TopNav from './components/TopNav';
-import CatNav from './components/CatNav';
-import MainComponent from './components/MainComponent';
+import {Routes,Route} from 'react-router-dom';
+
+import TopNav from './components/TopNav/TopNav';
+import CatNav from './components/CatNav/CatNav';
+import MainComponent from './components/MainComponent/MainComponent';
+import LandingPage from './components/LandingPage';
+import ProductDetails from './components/ProductDetails';
+import Cart from './components/Cart';
 
 
 // import your icons
@@ -22,7 +27,12 @@ function App() {
     <div className="App">
 <TopNav />
 <CatNav />
-<MainComponent />
+<Routes>
+<Route path="/cart" element={<Cart />} />
+  
+  <Route path="/" element={<LandingPage />} />
+  <Route path="/productdetails" element={<ProductDetails />} />
+</Routes>
 
     </div>
   );

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import  './_top-nav.scss'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 const TopNav = function()
 {
@@ -13,11 +14,11 @@ const TopNav = function()
         <div className='header bg-dark'>
         <div className='topnavrow row'>
           <div className='brand my-1'>
-            <h1> eStore </h1>
+            <h1> FShop </h1>
           </div>
           <div className='inp-container p-0 my-4 w-50 h-25 bg-white'>
             <div className='dropdown m-0 p-0'>
-              <select className='select-btn w-100 p-0 m-0'>
+              <select className='select-btn w-100 p-0 m-0' >
                 <option> Men </option>
                 <option> Women </option>
                 <option> Kids </option>
@@ -34,7 +35,8 @@ const TopNav = function()
             <ul className="p-0">
  
            <li className="list-icon"><FontAwesomeIcon icon="fa fa-heart"/> </li>
-           <li className="list-icon" > <FontAwesomeIcon icon="fa fa-shopping-cart"/>{cartItemCount>0 && <div className='cart-item-count'><p>{cartItemCount}</p></div>} </li>
+          
+           <li className="list-icon" > <Link to="/cart"> <FontAwesomeIcon icon="fa fa-shopping-cart" style={{color:"white"}}/>{cartItemCount>0 && <div className='cart-item-count'><p>{cartItemCount}</p></div>}</Link> </li>
          
             </ul>
 
