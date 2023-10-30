@@ -19,4 +19,4 @@ jobs:
         uses: bitovi/github-actions-react-to-github-pages@v1.2.0
         with:
           path: build # change to your build folder
-          install_command: "npm run ci --force  --legacy-peer-deps"
+          build: "npm run build --force  --legacy-peer-deps"
