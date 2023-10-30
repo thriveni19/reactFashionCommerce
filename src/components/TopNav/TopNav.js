@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  './_top-nav.scss'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import {GoogleLogin} from "react-google-login"
-import {gapi} from 'gapi-script';
+//import {GoogleLogin} from "react-google-login"
+//import {gapi} from 'gapi-script';
 const TopNav = function()
 {
 
@@ -35,11 +35,12 @@ const TopNav = function()
           </div>
           <div className="login-container p-0">
           <FontAwesomeIcon icon="fa fa-user-circle"/>
-            <h5> <GoogleLogin
+            <h5>
+              {/* <GoogleLogin
             successHandler={successHandler}
             onFailure={(res)=>console.log(res)}
             cookiePolicy='single_host_origin'
-             clientId='679326603397-ea4673crhd77kai8n6uja7h3e6cv0h3n.apps.googleusercontent.com'/>   </h5>
+    clientId='679326603397-ea4673crhd77kai8n6uja7h3e6cv0h3n.apps.googleusercontent.com'/>  */} </h5>
           </div>
           <div className='cart-wishlist'>
             <ul className="p-0">
