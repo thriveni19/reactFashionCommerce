@@ -20,8 +20,10 @@ const TopNav = function()
         <div className='header bg-dark'>
         <div className='topnavrow row'>
           <div className='brand my-1'>
-            <h1> FShop </h1>
+            <h1> Coforge Rewards Shop </h1>
           </div>
+         {/*
+         
           <div className='inp-container p-0 my-4 w-50 h-25 bg-white'>
             <div className='dropdown m-0 p-0'>
               <select className='select-btn w-100 p-0 m-0' >
@@ -32,21 +34,18 @@ const TopNav = function()
             </div>
             <input className='form-control   ' placeholder='Search...'/>
             <button> <FontAwesomeIcon icon='fa fa-search'/> </button>
+    
           </div>
           <div className="login-container p-0">
           <FontAwesomeIcon icon="fa fa-user-circle"/>
             <h5>
-              {/* <GoogleLogin
-            successHandler={successHandler}
-            onFailure={(res)=>console.log(res)}
-            cookiePolicy='single_host_origin'
-    clientId='679326603397-ea4673crhd77kai8n6uja7h3e6cv0h3n.apps.googleusercontent.com'/>  */} </h5>
+              </h5>
           </div>
+          */}
           <div className='cart-wishlist'>
             <ul className="p-0">
  
-           <li className="list-icon"><FontAwesomeIcon icon="fa fa-heart"/> </li>
-          
+           
            <li className="list-icon" > <Link to="/cart"> <FontAwesomeIcon icon="fa fa-shopping-cart" style={{color:"white"}}/>{cartItemCount>0 && <div className='cart-item-count'><p>{cartItemCount}</p></div>}</Link> </li>
          
             </ul>
