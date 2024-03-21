@@ -11,7 +11,7 @@ export const getCategories= createAsyncThunk(
 
     //const categories=["Men","Women","Kids","Best offers","All"];
 
-    const categories= fetch("http://localhost:8000/productcategories").then(res=>res.json());
+   const categories= fetch(process.env.REACT_APP_API_URL+"/productcategories").then(res=>res.json());
 
  return categories;
 }
