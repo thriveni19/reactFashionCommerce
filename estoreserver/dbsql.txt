@@ -1,6 +1,3 @@
--- database: c:\Users\serve\Desktop\work\estore\estoreServer\db\db.sqlite
-
--- Use the ▷ button in the top right corner to run the entire file.
 
 CREATE TABLE categories (
   id INTEGER PRIMARY KEY,
