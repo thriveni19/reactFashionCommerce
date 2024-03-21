@@ -8,8 +8,8 @@ export const getProducts= createAsyncThunk(
 
    ()=>{
 
-    let products= fetch("http://localhost:8000/getProducts").then(res=>res.json());
-    return products;
+  let products= fetch(process.env.REACT_APP_API_URL+"/getProducts").then(res=>res.json());
+      return products;
    }
 );
 
