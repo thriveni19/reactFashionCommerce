@@ -12,13 +12,14 @@
   
   .topnavrow div{
     display: inline-block;
+    
   }
   
   .brand{
-    color: white;
-    margin-left: 2%;
     padding: 0.8em;
-    width: 10%;
+    width: 80%;
+    color: #eef0f5;
+    margin-left: 2%;
   }
   
   .inp-container input{
@@ -73,7 +74,8 @@
     font-size:1.3em;
     list-style-type:none;
     display:inline-block;
-    margin-right:0.5em;
+    // margin-right:0.5em;
+    padding: 8px ;
   
   }
   
@@ -90,11 +92,12 @@
 
 
     border-radius:50%;
-    background-color: gold;
-    position:absolute;
+    background-color: #b6e34d;
+    position:relative;
     height:1em;
     width: 1em;
-    left: 83%;
+    // left: 83%;
+    left: 23%;
     top:1.8%;
     text-align: center;
     line-height: 90%;

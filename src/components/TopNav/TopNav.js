@@ -18,7 +18,7 @@ const TopNav = function()
 //console.log("count",cartItemCount);
     return(
         <div className='header bg-dark'>
-        <div className='topnavrow row'>
+        <div className='topnavrow row '>
           <div className='brand my-1'>
             <h1> Coforge Rewards Shop </h1>
           </div>
