@@ -6,13 +6,18 @@ import { useEffect } from 'react';
 import { getProducts } from '../../Redux/Product/actions';
 import { addCartItem } from '../../Redux/Cart/cartSlice';
 import { Link } from 'react-router-dom';
-const Products=()=>{
+const Products=(props)=>{
 
     let productData= useSelector(state=>state.productReducer.products);
+    
     
     let cartData=useSelector(state=>state.cartReducer)
     console.log(cartData);
     let dispatch= useDispatch();
+
+
+
+
     useEffect(()=>{
 
         console.log("use effect called");
@@ -26,12 +31,20 @@ const Products=()=>{
       product={...product,quantity:1};
         dispatch(addCartItem(product));
     }
+    let productList =[...productData]
+    let sortedProductList
+    if(props.productOrder =='' || props.productOrder =='productname' ){
+      sortedProductList = productList.sort((a, b) => b?.product_name.toLowerCase() > a?.product_name.toLowerCase() ? 1 : -1);
+   }else{
+    productData=sortedProductList
+   }
+   console.log('productData===',sortedProductList)
 
     
     return(
  
         <div className='product-container'>
-    {productData.map((eachProduct,index)=>{
+    {sortedProductList.map((eachProduct,index)=>{
 
             
 return(

@@ -4,13 +4,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import accordionSlice from '../../Redux/Accordion/accordionSlice'
 import { getCategories } from '../../Redux/Category/actions'
 import { filterByPrice, filterProducts } from '../../Redux/Product/productSlice'
-const SideNav = () => {
+const SideNav = (props) => {
 
     let accordionData= useSelector(state=>state.categoryReducer.categories);
     let  fetchedProductData= useSelector(state=>state.productReducer)
     let [products,setProducts] = useState();
     let [minPriceLimit,setMinPriceLimit]= useState(10);
     let [maxPriceLimit,setMaxPriceLimit]= useState(130);
+    let [sortingOrder, SortingOrder] = useState('productname')
+
+
     
     const dispatch= useDispatch();
 
@@ -112,6 +115,16 @@ if(eachData.parent_category_id==null)
             <h3> Filter by Price </h3>
 
          </div>
+         <div className='section-title '>
+            <label>
+            <button className='btn btn-outline-dark  my-3' 
+             onClick={() =>{SortingOrder('productname');props.getDataFromChild(sortingOrder)}}>
+                 Assending 
+                 </button>
+          </label>
+
+         </div>
+
          <div>
             <label> Min: {minPriceLimit} </label>
             <input type="range"
